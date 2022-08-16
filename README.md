@@ -19,7 +19,7 @@ Para criar as pastar `config`, `migrations`, `models` e `seeders`:
 npx sequalize init
 ```
 Possuindo a extensão node-snippets instalada no VScode com o comando `node-express` no index.js, será gerada o seguinte código:
-````JavaScript
+```JavaScript
 const express = require('express')
 const app = express()
 const port = 3000
