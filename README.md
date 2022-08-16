@@ -92,3 +92,18 @@ router.post('/push', async (req, res) => {
 ```JavaScript
 module.exports = router;
 ```
+## Rotas
+As rotas ficam na index.js de fora das pastas, para adicionar essas rotas neste projeto adicona-se o Body Parser, para garantir o uso de json nas comunicações do banco de dados e do navegador.
+```JavaScript
+// Importação
+const bodyParser = require('body-parser');
+// Aplicação
+app.use(bodyParser.json());
+```
+Para definir as rotas deve-se seguir o seguinte modelo,lembrando de importar os controllers, como existe um `Index.js` na pasta controllers, só precisa importar uma vez.
+```JavaScript
+// Importação
+const controllers = require('./controllers')
+// Rota
+app.use('/users', controllers.users)
+```
