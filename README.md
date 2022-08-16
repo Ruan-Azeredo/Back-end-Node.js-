@@ -18,7 +18,9 @@ Para criar as pastar `config`, `migrations`, `models` e `seeders`:
 ```bash
 npx sequalize init
 ```
-Possuindo a extensão node-snippets instalada no VScode com o comando `node-express` no index.js, será gerada o seguinte código:
+## Criando Index e configurando o Config
+O Index.js que fica fora de todas as pastas tem a função de gerenciar o servidor, e é onde, neste projeto são definidas as rotas. Já o Config.json já deve ter sido criado automaticamente com a instalação do pacote do MySQL, deve-se conferir neste arquivo principalmente a senha e o nome do banco de dados. Essas informações podem utilizar uma rota para um .env para ter maior segurança.
+- Possuindo a extensão node-snippets instalada no VScode com o comando `node-express` no index.js, será gerada o seguinte código:
 ```JavaScript
 const express = require('express')
 const app = express()
@@ -47,7 +49,7 @@ module.exports = {
     }
 }
 ```
-### Model
+## Model
 Na pasta models, já vem o arquivo index.js, este arquivo deve permanecer intocado, ele é importante para a relação com o controller.
 
 Cria-se o model `User.js`, que deve conter os tipos de dados dos campos da migrate, ele deve seguir o seguinte exemplo:
@@ -61,3 +63,4 @@ const User = (sequelize, DataTypes) => {
 module.exports = User;
 ```
 Repare na definição pelo sequelize, e na importação, já que se cria a constante User e depois a exporta(caso seja exportada direto pode dar alguns bugs).
+## Controller
