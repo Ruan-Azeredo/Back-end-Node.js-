@@ -64,3 +64,31 @@ module.exports = User;
 ```
 Repare na definição pelo sequelize, e na importação, já que se cria a constante User e depois a exporta(caso seja exportada direto pode dar alguns bugs).
 ## Controller
+Deve ser criada a pasta controllers, e dentro dela os devidos controllers. Neste projeto optou-se pela utilização de uma index no controller também para fazer a comunicação da rota com o controller
+- Este index.js fica da seguinte forma:
+```JavaScript
+const { request } = require('express');
+const usersController = require('./usersController');
+module.exports = {
+    users: usersController,
+};
+```
+Já o controller de user(userController), deve possuir a importação e a definição do `Router` e também a importação do model.
+```JavaScript
+const { Router } = require('express');
+const { User } = require('../models');
+
+const router = Router();
+```
+As ações vão ocorrer em função das rotas, então toda a parte logica do que deve ser feito com a informação deve estar dentro de uma função disparada pela rota. Estas funções seguem este exemplo:
+```JavaScript
+router.post('/push', async (req, res) => {
+    const { name, email } = req.body;
+    const newuser = await User.create({ name, email });
+    return res.json(newuser);
+});
+```
+É importante se atentar a exportação das rotas que acontece por meio do:
+```JavaScript
+module.exports = router;
+```
