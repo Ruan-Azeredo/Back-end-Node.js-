@@ -1,7 +1,7 @@
 # Back-end Node.js com MySQL e Sequelize
 
 ## Instalando pacotes e configuranado ambiente:
-Instalando Pacotes
+Instalando Pacotes.
 ```bash
 # Para instalar o pacote Express, o MySQL, o Sequelize, o Nodemon e o Body Parser
 npm i express mysql2 sequelize nodemon body-parser
@@ -37,4 +37,18 @@ module.exports = {
       },
     }
 }
+```
+### Model
+Na pasta models, já vem o arquivo index.js, este arquivo deve permanecer intocado, ele é importante para a relação com o controller.
+
+Cria-se o model `User.js`, que deve conter os tipos de dados dos campos da migrate, ele deve seguir o seguinte exemplo:
+Repare na definição pelo sequelize, e na importação, já que se cria a constante User e depois a exporta(caso seja exportada direto pode dar alguns bugs).
+```JavaScript
+const User = (sequelize, DataTypes) => {
+    return sequelize.define('User', {
+        name: DataTypes.STRING,
+        email: DataTypes.STRING,
+    });
+};
+module.exports = User;
 ```
