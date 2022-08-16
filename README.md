@@ -18,6 +18,15 @@ Para criar as pastar `config`, `migrations`, `models` e `seeders`:
 ```bash
 npx sequalize init
 ```
+Possuindo a extensão node-snippets instalada no VScode com o comando `node-express` no index.js, será gerada o seguinte código:
+````JavaScript
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => res.send('Hello World!'))
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+```
 ## Migrate
 Criando a migrate
 ```bash
@@ -42,6 +51,7 @@ module.exports = {
 Na pasta models, já vem o arquivo index.js, este arquivo deve permanecer intocado, ele é importante para a relação com o controller.
 
 Cria-se o model `User.js`, que deve conter os tipos de dados dos campos da migrate, ele deve seguir o seguinte exemplo:
+</br>
 Repare na definição pelo sequelize, e na importação, já que se cria a constante User e depois a exporta(caso seja exportada direto pode dar alguns bugs).
 ```JavaScript
 const User = (sequelize, DataTypes) => {
