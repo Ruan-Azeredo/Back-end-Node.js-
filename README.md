@@ -51,8 +51,6 @@ module.exports = {
 Na pasta models, já vem o arquivo index.js, este arquivo deve permanecer intocado, ele é importante para a relação com o controller.
 
 Cria-se o model `User.js`, que deve conter os tipos de dados dos campos da migrate, ele deve seguir o seguinte exemplo:
-</br>
-Repare na definição pelo sequelize, e na importação, já que se cria a constante User e depois a exporta(caso seja exportada direto pode dar alguns bugs).
 ```JavaScript
 const User = (sequelize, DataTypes) => {
     return sequelize.define('User', {
@@ -62,3 +60,4 @@ const User = (sequelize, DataTypes) => {
 };
 module.exports = User;
 ```
+Repare na definição pelo sequelize, e na importação, já que se cria a constante User e depois a exporta(caso seja exportada direto pode dar alguns bugs).
