@@ -17,6 +17,12 @@ router.post('/create', async (req, res) => { // criar novo usuario
 router.get('/:id', async (req, res) => { //mostra o usuario de determinado id
     const user = await User.findByPk(req.params.id);
     return res.json(user);
+});
+
+router.delete('/:id', async (req, res) => {
+    await User.destroy({ where: { id: req.params.id } });
+    id = req.params.id
+    return res.json(`Usuario de id = ${id} deletado`)
 })
 
 module.exports = router;
