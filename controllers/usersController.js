@@ -19,10 +19,20 @@ router.get('/:id', async (req, res) => { //mostra o usuario de determinado id
     return res.json(user);
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => { //deleta um usuario de determinado id
     await User.destroy({ where: { id: req.params.id } });
     id = req.params.id
     return res.json(`Usuario de id = ${id} deletado`)
-})
+});
+
+router.put('/:id', async (req, res) => { //atualiza um usuario de determinado id
+    const { name, email } = req.body;
+    await User.update(
+        { name, email }, { where: { id: req.params.id } }
+    ) // substitui o nome e o email onde o id é igual ao id digitado
+    
+    const updateduser = await User.findByPk(req.params.id); // depois de atualizar, busca o novo id para mostrar, não é tão necessario para o funcionamento da atualização, apenas para mostrar o resultado
+    return res.json(updateduser)
+});
 
 module.exports = router;
