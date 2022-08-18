@@ -107,3 +107,13 @@ const controllers = require('./controllers')
 // Rota
 app.use('/users', controllers.users)
 ```
+## Cors
+Como por padrão a Api já bloquei sua chamada por outra rota, foi adicionado o `cors`, que faz essa permissão. Logo ele foi adicionado na index principal
+```bash
+npm i cors
+```
+```JavaScript
+const cors = require('cors')
+
+app.use(cors())
+```
