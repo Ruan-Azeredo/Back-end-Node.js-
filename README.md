@@ -32,7 +32,7 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 ## Migrate
 Criando a migrate
 ```bash
-npx sequelize migration:generate --name reate-users-table
+npx sequelize migration:generate --name create-users-table
 ```
 
 A migration é criada tanto com o `up` quanto o `down` no formato de arrowfunctions, como neste exemplo:
